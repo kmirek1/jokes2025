@@ -4,40 +4,55 @@
 # make this performance task ready for submission
 # To give the user a fun experience hearing knock knock jokes
 
-joke = input("Do you want to hear a joke? ")
 
-if joke == "no":
-    print("Okay suit yourself!")
-elif joke == "yes":
-    print("Great, Let's Play")
-    def joke_topic(topics):
-        topics = ["robbers", "tanks", "pencils"]
-        topic = input("Do you want to hear a joke about robbers, tanks, or pencils? ")
-        if topic in topics == "robbers":
-            input("Knock Knock ")
-            input("Calder")
-            print("Calder police - I've been robbed!")
-            joke = input("Do you want to hear another joke or are you finished? ")
-        elif topic in topics == "tanks":
-            input("Knock Knock ")
-            input("Tank ")
-            input("You are welcome! ")
-            joke = input("Do you want to hear another joke or are you finished? ")
-        elif topic in topics == "pencils":
-            input("Knock Knock ")
-            input("Broken pencil ")
-            input("Nevermind, it's pointless! ")
-            joke = input("Do you want to hear another joke or are you finished? ")
-    if joke == "finished":
+    
 
-        rate = int(input("Please rate our game 1-10! "))
-        def final_score(rate):
-            int(rate * 10)
-            return(final_score)
-        print(str(final_score) + " percent satisfaction rate")
-        friend = input("Would you recommend this game to a friend? ")
 
-        if friend == "yes" or friend == "maybe":
-            print("Thanks, we appreciate it. ")
-        else:
-            print("Sorry you did not enjoy it. ")
+def start():
+     answer = input("Do you want to hear a joke? ").lower()
+     if answer == "no":
+        print("Okay suit yourself!")
+     elif answer == "yes":
+        print("Great, let's play!")
+        joke_topic()
+
+def rating():
+    rate = int(input("Please rate our game 1-10! "))
+    print(f"User Satisifaction: {rate * 10}%")
+    if rate > 6:
+        print("Glad you liked it!")
+    else:
+        print("Sorry you didn't like")
+
+
+
+
+def joke_topic():
+     topics = ["robbers", "tanks", "pencils" ]
+     topic = input("Do you want to hear a joke about robbers, tanks, or pencils?").lower()
+     
+     if topic == "robbers":
+        input("Knock Knock ")
+        input("Calder")
+        print("Calder police - I've been robbed!")
+     elif topic == "tanks":
+        input("Knock Knock ")
+        input("Tank ")
+        input("You are welcome! ")
+     elif topic == "pencils":
+        input("Knock Knock ")
+        input("Broken pencil ")
+        input("Nevermind, it's pointless! ")
+     else:
+        print("Sorry I'm not funny enough to know that...")
+        return joke_topic()
+     
+     exit()
+
+def exit():
+     joke = input("Do you want to hear another joke? ").lower()
+     if joke == "no":
+          rating()
+     else:
+        joke_topic()
+start()
