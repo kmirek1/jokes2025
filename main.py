@@ -4,7 +4,7 @@
 def rating(user_name):
         rate = int(input(f"\nPlease rate our game 1-10, {user_name}! "))
         print(f"User Satisfaction: {rate * 10}%")
-        if rate > 6:
+        if rate > 5:
             print("Glad you liked it!")
         else:
             print("Sorry you didn't like it. We'll try harder next time!")
@@ -26,7 +26,7 @@ def play_jokes(user_name):
             input("Knock Knock... ")
             input("Tank... ")
             print("You're welcome!")
-         elif topic == "pencils":
+        elif topic == "pencils":
              input("Knock Knock... ")
              input("Broken pencil... ")
              print("Nevermind, it's pointless!")
