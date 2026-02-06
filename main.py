@@ -12,38 +12,37 @@ def rating(user_name):
 # Function to handle the joke logic with a loop for iteration
 def play_jokes(user_name):
     playing = True
-    
+
+    # Dictionary so jokes can be added and persist
+    topics = {
+        "robbers": "Calder police - I've been robbed!",
+        "tanks": "You're welcome!",
+        "pencils": "Nevermind, it's pointless!"
+    }
+
     while playing:
-        topics = ["robbers", "tanks", "pencils"]
-        print(f"\nOkay {user_name}, we have: {', '.join(topics)}")
+        print(f"\nOkay {user_name}, we have: {', '.join(topics.keys())}")
         topic = input("Which one do you choose? ").lower()
 
-        if topic == "robbers":
+        if topic in topics:
             input("Knock Knock... (Press Enter)")
-            input("Calder... ")
-            print("Calder police - I've been robbed!")
-        elif topic == "tanks":
-            input("Knock Knock... ")
-            input("Tank... ")
-            print("You're welcome!")
-        elif topic == "pencils":
-             input("Knock Knock... ")
-             input("Broken pencil... ")
-             print("Nevermind, it's pointless!")
+            input(f"{topic.capitalize()}... ")
+            print(topics[topic])
         else:
             print("Sorry, I'm not funny enough to know that one...")
-            add_joke = input("Would you like to add this joke?")
-            if add_joke == "yes":
-                 new_who = input("What is the joke about?")
-                 new_punchline = input("What is the punchline?")
-                 topics[topic] = (new_who, new_punchline)
-            continue # Restarts the loop to ask for a valid topic
+            add_joke = input("Would you like to add this joke? ").lower()
 
-        # This section handles the iteration (looping again or stopping)
+            if add_joke == "yes":
+                new_who = input("What is the joke about? ").lower()
+                new_punchline = input("What is the punchline? ")
+                topics[new_who] = new_punchline
+                print(f"Great! I added a new joke about {new_who}.")
+            continue
+
         choice = input(f"\n{user_name}, do you want to hear another joke? (yes/no) ").lower()
         if choice != "yes":
             playing = False
-    
+
     rating(user_name)
 
 # Starting function
